@@ -7,6 +7,7 @@ from promotions_analyser import count_average_discount, count_category_to_averag
 
 
 def print_store_data(store_id: int, promotions: List[Promotion]):
+    """Выводит данные по акциям магазина"""
     print(f'Store {store_id}:')
 
     average_discount = count_average_discount(promotions)
@@ -20,8 +21,8 @@ def print_store_data(store_id: int, promotions: List[Promotion]):
 
 
 def main():
+    # todo: Выбор магазинов по городу/адресу
     stores = [8958, 61350]
-    # stores = [8958]
     store_to_promotions = asyncio.run(get_all_stores_promotion_data(stores))
     for store in stores:
         print_store_data(store, store_to_promotions[store])
